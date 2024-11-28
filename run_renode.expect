@@ -1,0 +1,29 @@
+#!/usr/bin/expect
+
+spawn mono /Applications/Renode.app/Contents/MacOS/bin/Renode.exe --console
+
+expect "Renode, version" {
+    send "mach create\r"
+}
+
+expect "(monitor)" {
+    send "machine LoadPlatformDescription @platforms/boards/stm32F4_discovery-kit.repl\r"
+}
+
+expect "sysbus: Loaded SVD:" {
+    sleep 2
+    send "sysbus LoadELF @./main.elf\r"
+}
+
+expect "sysbus: Loading segment of 0" {
+    sleep 2
+    send "start\r"
+}
+
+expect "Machine started" {
+    sleep 2
+    send "logLevel -1 gpioPortD.UserLED\r"
+}
+
+# Keep the session open to observe output
+interact

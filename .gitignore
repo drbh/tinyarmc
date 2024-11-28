@@ -1,0 +1,6 @@
+# renode disk image
+*.dmg
+
+# output files
+*.map
+*.elf
