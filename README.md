@@ -1,10 +1,10 @@
 # tinyarmc
 
-tinyarmc is a tiny project that builds a simple c program for the stm32f4 discovery board. the program blinks the user led on the board. additionally, the project uses `renode` to simulate the device and run the code - this is useful for testing the code without having the physical hardware, and speeds up the development process.
+`tinyarmc` is a lightweight project designed to build and run a simple C program on the STM32F4 Discovery Board. The program toggles the onboard user LED. Additionally, the project leverages renode to simulate the device, enabling you to test the code without requiring physical hardware. This approach not only simplifies testing but also accelerates the development process.
 
-## setup
+## Setup
 
-this project assumes you're developing on a osx machine. the instructions may vary for other operating systems.
+this project assumes you are developing on an OSX machine. Instructions may vary for other operating systems.
 
 ### install the arm toolchain
 
@@ -90,3 +90,10 @@ sysbus LoadELF @./main.elf
 start
 logLevel -1 gpioPortD.UserLED
 ```
+
+### to explore
+
+- [ ] explore cmsis-nn for neural networks on arm cortex-m devices https://arm-software.github.io/CMSIS-NN/latest/
+- [ ] improve the build process with a makefile or cmake
+- [ ] understand limitations of renode
+- [ ] explore/document more complex examples
